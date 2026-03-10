@@ -22,8 +22,7 @@
         .home-img { width: 90%; max-width: 520px; border-radius: 15px; margin-top: 20px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); }
         .intro { max-width: 600px; margin: 25px auto; font-size: 18px; line-height: 1.6; }
         .card { background: white; margin: 30px auto; padding: 30px; border-radius: 15px; max-width: 550px; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); transition: 0.3s; }
-        
-       
+
         .carousel-container { display: flex; overflow-x: auto; gap: 20px; padding: 20px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; justify-content: flex-start; max-width: 1000px; margin: 0 auto; }
         .carousel-item { flex: 0 0 80%; scroll-snap-align: center; text-align: center; }
         .carousel-item img { width: 100%; height: 350px; object-fit: contain; border-radius: 15px; background: #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
@@ -42,24 +41,24 @@
         .like-btn, .start-btn { margin-top: 10px; padding: 10px 18px; border: none; border-radius: 20px; cursor: pointer; font-size: 14px; transition: 0.3s; display: inline-block; }
         .like-btn { background: #F2E8D5; margin-right: 5px; }
         .start-btn { background: #e2e2e2; }
-        .liked { background: #fac3c3 !important; }
+        .liked, .toggled { background: #fac3c3 !important; }
         
         h3 { margin-top: 40px; border-bottom: 2px solid #fac3c3; display: inline-block; padding-bottom: 5px; }
+
         /* FOOTER */
+        footer{
+            background:#2c1810;
+            color:#d7ccc8;
+            text-align:center;
+            padding:20px;
+            margin-top:60px;
+            font-size:0.9rem;
+            letter-spacing:1px;
+        }
 
-footer{
-    background:#2c1810;
-    color:#d7ccc8;
-    text-align:center;
-    padding:20px;
-    margin-top:60px;
-    font-size:0.9rem;
-    letter-spacing:1px;
-}
-
-footer strong{
-    color:#ffffff;
-}
+        footer strong{
+            color:#ffffff;
+        }
     </style>
 </head>
 
@@ -89,14 +88,14 @@ footer strong{
         <h2>Podcasts 🎙️</h2>
         <p>Arraste para o lado para ver meus favoritos.</p>
         <div class="carousel-container">
-            <div class="pod-card-item"><img src="tiquim.png"><h3>Tiquim</h3><br><button class="like-btn" onclick="curtir(this)">❤️ Gostei</button><button class="start-btn" onclick="acaoPod(this)">🎧 Ouvir</button></div>
-            <div class="pod-card-item"><img src="fala alguma.png"><h3>Fala alguma coisa</h3><br><button class="like-btn" onclick="curtir(this)">❤️ Gostei</button><button class="start-btn" onclick="acaoPod(this)">🎧 Ouvir</button></div>
-            <div class="pod-card-item"><img src="bom dia.png"><h3>Bom dia obvious</h3><br><button class="like-btn" onclick="curtir(this)">❤️ Gostei</button><button class="start-btn" onclick="acaoPod(this)">🎧 Ouvir</button></div>
-            <div class="pod-card-item"><img src="fashion.png"><h3>Fashion neurosis</h3><br><button class="like-btn" onclick="curtir(this)">❤️ Gostei</button><button class="start-btn" onclick="acaoPod(this)">🎧 Ouvir</button></div>
-            <div class="pod-card-item"><img src="guilty.png"><h3>The guilty feminist</h3><br><button class="like-btn" onclick="curtir(this)">❤️ Gostei</button><button class="start-btn" onclick="acaoPod(this)">🎧 Ouvir</button></div>
-            <div class="pod-card-item"><img src="gostosas.png"><h3>Gostosas também choram</h3><br><button class="like-btn" onclick="curtir(this)">❤️ Gostei</button><button class="start-btn" onclick="acaoPod(this)">🎧 Ouvir</button></div>
-            <div class="pod-card-item"><img src="cansadas.png"><h3>Cansada mas tentando</h3><br><button class="like-btn" onclick="curtir(this)">❤️ Gostei</button><button class="start-btn" onclick="acaoPod(this)">🎧 Ouvir</button></div>
-            <div class="pod-card-item"><img src="luke's English.png"><h3>Luke's English</h3><br><button class="like-btn" onclick="curtir(this)">❤️ Gostei</button><button class="start-btn" onclick="acaoPod(this)">🎧 Ouvir</button></div>
+            <div class="pod-card-item"><img src="tiquim.png"><h3>Tiquim</h3><br><button class="like-btn" onclick="curtir(this)">❤️ Gostei</button><button class="start-btn" onclick="acaoToggle(this,'🎧 Ouvir')">🎧 Ouvir</button></div>
+            <div class="pod-card-item"><img src="fala alguma.png"><h3>Fala alguma coisa</h3><br><button class="like-btn" onclick="curtir(this)">❤️ Gostei</button><button class="start-btn" onclick="acaoToggle(this,'🎧 Ouvir')">🎧 Ouvir</button></div>
+            <div class="pod-card-item"><img src="bom dia.png"><h3>Bom dia obvious</h3><br><button class="like-btn" onclick="curtir(this)">❤️ Gostei</button><button class="start-btn" onclick="acaoToggle(this,'🎧 Ouvir')">🎧 Ouvir</button></div>
+            <div class="pod-card-item"><img src="fashion.png"><h3>Fashion neurosis</h3><br><button class="like-btn" onclick="curtir(this)">❤️ Gostei</button><button class="start-btn" onclick="acaoToggle(this,'🎧 Ouvir')">🎧 Ouvir</button></div>
+            <div class="pod-card-item"><img src="guilty.png"><h3>The guilty feminist</h3><br><button class="like-btn" onclick="curtir(this)">❤️ Gostei</button><button class="start-btn" onclick="acaoToggle(this,'🎧 Ouvir')">🎧 Ouvir</button></div>
+            <div class="pod-card-item"><img src="gostosas.png"><h3>Gostosas também choram</h3><br><button class="like-btn" onclick="curtir(this)">❤️ Gostei</button><button class="start-btn" onclick="acaoToggle(this,'🎧 Ouvir')">🎧 Ouvir</button></div>
+            <div class="pod-card-item"><img src="cansadas.png"><h3>Cansada mas tentando</h3><br><button class="like-btn" onclick="curtir(this)">❤️ Gostei</button><button class="start-btn" onclick="acaoToggle(this,'🎧 Ouvir')">🎧 Ouvir</button></div>
+            <div class="pod-card-item"><img src="luke's English.png"><h3>Luke's English</h3><br><button class="like-btn" onclick="curtir(this)">❤️ Gostei</button><button class="start-btn" onclick="acaoToggle(this,'🎧 Ouvir')">🎧 Ouvir</button></div>
         </div>
     </section>
 
@@ -128,7 +127,7 @@ footer strong{
         </div>
         <div class="card">
             <button class="like-btn" onclick="curtir(this)">✨ Adoro estas artistas</button>
-            <button class="start-btn" onclick="acao(this,'🎨')">🎨 Vou ver mais artes</button>
+            <button class="start-btn" onclick="acaoToggle(this,'🎨 Vou ver mais artes')">🎨 Vou ver mais artes</button>
         </div>
     </section>
 
@@ -150,7 +149,7 @@ footer strong{
         </div>
         <div class="card">
             <button class="like-btn" onclick="curtir(this)">🎶 Gostei dessa playlist</button>
-            <button class="start-btn" onclick="acao(this,'🎧')">🎧 Vou ouvir agora</button>
+            <button class="start-btn" onclick="acaoToggle(this,'🎧 Vou ouvir agora')">🎧 Vou ouvir agora</button>
         </div>
     </section>
 
@@ -173,7 +172,7 @@ footer strong{
         <div class="card">
             <h2>Recomendações</h2>
             <button class="like-btn" onclick="curtir(this)">📖 Também gostei</button>
-            <button class="start-btn" onclick="acao(this,'📚')">📚 Vou ler</button>
+            <button class="start-btn" onclick="acaoToggle(this,'📚 Vou ler')">📚 Vou ler</button>
         </div>
     </section>
 
@@ -185,8 +184,16 @@ footer strong{
 
         function showPage(pageId) {
             let sections = document.querySelectorAll("body > section");
-            sections.forEach(sec => sec.classList.remove("active"));
-            document.getElementById(pageId).classList.add("active");
+            sections.forEach(sec => {
+                sec.classList.remove("active");
+                // Reset scroll do carrossel para cada seção
+                let carousels = sec.querySelectorAll(".carousel-container");
+                carousels.forEach(c => c.scrollLeft = 0);
+            });
+
+            let activeSection = document.getElementById(pageId);
+            activeSection.classList.add("active");
+            activeSection.scrollTop = 0; // garante topo da seção
             toggleMenu();
         }
 
@@ -195,21 +202,22 @@ footer strong{
             btn.innerHTML = btn.classList.contains("liked") ? "❤️ Você também gostou" : "❤️ Eu também gostei";
         }
 
-        function acao(btn, emoji) {
-            btn.innerHTML = emoji + " Já coloquei na minha lista";
-            btn.style.background = "#fac3c3";
+        function acaoToggle(btn, textoOriginal) {
+            if (!btn.classList.contains("toggled")) {
+                btn.classList.add("toggled");
+                btn.innerHTML = "✅ Já coloquei na minha lista";
+                btn.style.background = "#fac3c3";
+            } else {
+                btn.classList.remove("toggled");
+                btn.innerHTML = textoOriginal;
+                btn.style.background = "#e2e2e2";
+            }
         }
-
-        function acaoPod(btn) {
-            btn.innerHTML = "🎧 Já coloquei na minha lista";
-            btn.style.background = "#fac3c3";
-        }
-        </script>
+    </script>
 
 <footer>
-    © 2026 <strong>Maria Vit – Myfavorite</strong>
+    © 2026 | <strong>Maria Vit – Myfavorite</strong>
 </footer>
 
 </body>
 </html>
-   
